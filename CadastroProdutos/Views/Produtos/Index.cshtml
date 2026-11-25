@@ -1,0 +1,36 @@
+@model List<CadastroProdutos.Models.Produto>
+@{
+    ViewData[index: "Title"]= "Produtos";
+}
+
+<h1> Cadatro de Produtos</h1>
+
+<p> Bem-Vindo ao sistema de gerenciamento de produtos</p>
+
+<button class="btn btn-primary">Novo Produto</button>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID </th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>@produto.Id</td> 
+                <td>@produto.Nome</td>
+                <td>R$ @produto.Preco.ToString(format: "F2", System.Globalization.CultureInfo.GetCultureInfo(name: "pt-BR"))</td>
+                <td>@produto.Estoque</td>
+
+            </tr>
+            // TOSTTRING F2 - formato das casas decimais
+            // System.Globalization.CultureInfo.GetCultureInfo(name: "pt-BR")) -- escreve do jeito que etamos acostumados no local "BR" - brasil
+            // @ - codigo C#
+        }
+    </tbody>
+</table>
